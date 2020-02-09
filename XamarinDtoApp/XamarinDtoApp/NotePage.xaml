@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:XamarinDtoApp.ViewModels;assembly=XamarinDtoApp"
+             mc:Ignorable="d"
+             x:DataType="{x:Type vm:NoteViewModel}"
+             x:Class="XamarinDtoApp.NotePage">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Entry Text="{Binding Title}" Grid.Row="0" />
+        <Label Text="{Binding LastEditDate}" Grid.Row="1" />
+        <ScrollView Grid.Row="2">
+            <Editor Text="{Binding Content}" />
+        </ScrollView>
+        <Button Text="Reset" Command="{Binding ExecuteReset}" Grid.Row="3" />
+        <Button Text="Store" Command="{Binding ExecuteStore}" Grid.Row="4" />
+    </Grid>
+
+</ContentPage>

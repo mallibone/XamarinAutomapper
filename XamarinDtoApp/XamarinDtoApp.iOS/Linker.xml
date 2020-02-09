@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="mscorlib">
+    <type fullname="System.Convert" preserve="All" />
+  </assembly>
+</linker>
