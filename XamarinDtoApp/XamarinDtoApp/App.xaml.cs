@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using XamarinDtoApp.Models;
 using XamarinDtoApp.Services;
 using XamarinDtoApp.ViewModels;
 
@@ -13,14 +11,7 @@ namespace XamarinDtoApp
         public App()
         {
             InitializeComponent();
-
-            var mapperConfiguration = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Note, NoteViewModel>()
-                    .ReverseMap();
-            });
-
-            IMapper mapper = mapperConfiguration.CreateMapper();
+            IMapper mapper = AppBootstrapper.CreateMapper();
 
             var mainPage = new NotePage(new NoteViewModel(mapper, new NoteService()));
             MainPage = mainPage;
@@ -36,18 +27,6 @@ namespace XamarinDtoApp
 
         protected override void OnResume()
         {
-        }
-    }
-
-    public class AppBootstrapper
-    {
-        public AppBootstrapper()
-        {
-            var mapperConfiguration = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Models.Note, ViewModels.NoteViewModel>()
-                    .ReverseMap();
-            });
         }
     }
 }

@@ -14,6 +14,8 @@ namespace XamarinDtoApp.ViewModels
         private readonly IMapper _mapper;
         private readonly NoteService _noteService;
 
+        public NoteViewModel() { }
+
         public NoteViewModel(IMapper mapper, NoteService noteService)
         {
             _mapper = mapper ?? throw new System.ArgumentNullException(nameof(mapper));
