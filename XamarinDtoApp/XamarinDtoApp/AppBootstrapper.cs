@@ -11,9 +11,9 @@ namespace XamarinDtoApp
             var mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Note, NoteViewModel>()
-                    .ForMember(n => n.ExecuteReset, opt => opt.Ignore())
-                    .ForMember(n => n.ExecuteStore, opt => opt.Ignore())
-                    .ReverseMap();
+                    .ForMember(vm => vm.ExecuteReset, opt => opt.Ignore())
+                    .ForMember(vm => vm.ExecuteStore, opt => opt.Ignore());
+                cfg.CreateMap<NoteViewModel, Note>();
             });
 
             return mapperConfiguration.CreateMapper();
